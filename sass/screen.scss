@@ -1,0 +1,50 @@
+/*
+ * Style Configuration
+ *
+ * This is included first so that our variables trickle
+ * down to all the imports and styles below.
+ */
+
+// - From Normalize
+// We can override here, these get applied before Sass compiles
+$normalized_font_family: 'Helvetica';
+
+// - Colors
+$background: whitesmoke;
+$color: #363636;
+$white: #f6f6f6;
+
+/*
+ * Required Imports
+ */
+
+@import "normalize"; // Reset CSS, gives us decent typography, etc
+@import "shims"; // Augments gaps in HTML5, Normalize, etc
+@import "mixins"; // Common functions and reusables
+
+/*
+ * Begin Site Styles
+ */
+
+/* //////
+ * Layout
+ * //////
+ */
+
+.header {
+    // includes/mixins first in case we have to override!
+    @include heart-background(120px, #b03, #d35);
+    height: 20em;
+
+    text-align: center;
+    color: $white;
+}
+
+.footer {
+    background: darkslategrey;
+}
+
+.main {
+    @include container;
+}
+
