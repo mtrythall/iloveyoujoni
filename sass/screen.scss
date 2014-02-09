@@ -11,7 +11,9 @@ $normalized_font_family: 'Helvetica';
 
 // - Colors
 $background: whitesmoke;
-$color: #363636;
+$color: #363636; // Used to set font color
+
+$base-color: #d35;
 $white: #f6f6f6;
 
 /*
@@ -26,25 +28,55 @@ $white: #f6f6f6;
  * Begin Site Styles
  */
 
-/* //////
- * Layout
- * //////
- */
+//
+// Layout
+//
 
 .header {
     // includes/mixins first in case we have to override!
-    @include heart-background(120px, #b03, #d35);
-    height: 20em;
+    @include heart-background(120px, lighten($base-color, 5%), $base-color);
+    height: 48em;
 
     text-align: center;
     color: $white;
 }
 
 .footer {
+    padding-top: 2em;
+    padding-bottom: 2em;
     background: darkslategrey;
+    text-align: center;
+    color: $white;
+
+    a {
+        color: $white;
+    }
+
+    a:hover {
+        text-decoration: none;
+    }
 }
 
 .main {
     @include container;
 }
 
+//
+// Header
+//
+.site-title {
+    margin-top: 0;
+}
+
+//
+// Coupon Style
+//
+
+.coupon {
+    padding: .5em;
+    border-top: 1px solid lighten($base-color, 30%);
+
+    &:first-child {
+        border-top: none;
+    }
+}

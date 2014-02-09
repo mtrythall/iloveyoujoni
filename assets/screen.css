@@ -177,21 +177,34 @@ main {
 /*
  * Begin Site Styles
  */
-/* //////
- * Layout
- * //////
- */
 .header {
-  background: radial-gradient(circle closest-side at 60% 43%, #d35 26%, rgba(221, 51, 85, 0) 27%), radial-gradient(circle closest-side at 40% 43%, #d35 26%, rgba(221, 51, 85, 0) 27%), radial-gradient(circle closest-side at 40% 22%, #b03 45%, rgba(187, 0, 51, 0) 46%), radial-gradient(circle closest-side at 60% 22%, #b03 45%, rgba(187, 0, 51, 0) 46%), radial-gradient(circle closest-side at 50% 35%, #b03 30%, rgba(187, 0, 51, 0) 31%), radial-gradient(circle closest-side at 60% 43%, #d35 26%, rgba(221, 51, 85, 0) 27%) 50px 50px, radial-gradient(circle closest-side at 40% 43%, #d35 26%, rgba(221, 51, 85, 0) 27%) 50px 50px, radial-gradient(circle closest-side at 40% 22%, #b03 45%, rgba(187, 0, 51, 0) 46%) 50px 50px, radial-gradient(circle closest-side at 60% 22%, #b03 45%, rgba(187, 0, 51, 0) 46%) 50px 50px, radial-gradient(circle closest-side at 50% 35%, #b03 30%, rgba(187, 0, 51, 0) 31%) 50px 50px;
+  background: radial-gradient(circle closest-side at 60% 43%, #d35 26%, rgba(221, 51, 85, 0) 27%), radial-gradient(circle closest-side at 40% 43%, #d35 26%, rgba(221, 51, 85, 0) 27%), radial-gradient(circle closest-side at 40% 22%, #e14967 45%, rgba(224, 72, 103, 0) 46%), radial-gradient(circle closest-side at 60% 22%, #e14967 45%, rgba(224, 72, 103, 0) 46%), radial-gradient(circle closest-side at 50% 35%, #e14967 30%, rgba(224, 72, 103, 0) 31%), radial-gradient(circle closest-side at 60% 43%, #d35 26%, rgba(221, 51, 85, 0) 27%) 50px 50px, radial-gradient(circle closest-side at 40% 43%, #d35 26%, rgba(221, 51, 85, 0) 27%) 50px 50px, radial-gradient(circle closest-side at 40% 22%, #e14967 45%, rgba(224, 72, 103, 0) 46%) 50px 50px, radial-gradient(circle closest-side at 60% 22%, #e14967 45%, rgba(224, 72, 103, 0) 46%) 50px 50px, radial-gradient(circle closest-side at 50% 35%, #e14967 30%, rgba(224, 72, 103, 0) 31%) 50px 50px;
   background-color: #d35;
   background-size: 120px 120px;
-  height: 20em;
+  height: 48em;
   text-align: center;
   color: #f6f6f6; }
 
 .footer {
-  background: darkslategrey; }
+  padding-top: 2em;
+  padding-bottom: 2em;
+  background: darkslategrey;
+  text-align: center;
+  color: #f6f6f6; }
+  .footer a {
+    color: #f6f6f6; }
+  .footer a:hover {
+    text-decoration: none; }
 
 .main {
   margin: 0 auto;
   width: 35em; }
+
+.site-title {
+  margin-top: 0; }
+
+.coupon {
+  padding: 0.5em;
+  border-top: 1px solid #f3b6c2; }
+  .coupon:first-child {
+    border-top: none; }
