@@ -10,7 +10,6 @@
 $normalized_font_family: 'Helvetica';
 
 // - Colors
-$background: whitesmoke;
 $color: #363636; // Used to set font color
 
 $base-color: #d35;
@@ -28,44 +27,44 @@ $white: #f6f6f6;
  * Begin Site Styles
  */
 
+html {
+  @include heart-background(120px, lighten($base-color, 5%), $base-color);
+}
+
 //
 // Layout
 //
 
 .header {
-    // includes/mixins first in case we have to override!
-    @include heart-background(120px, lighten($base-color, 5%), $base-color);
-    height: 48em;
-
-    text-align: center;
-    color: $white;
+  text-align: center;
+  color: $white;
 }
 
 .footer {
-    padding-top: 2em;
-    padding-bottom: 2em;
-    background: darkslategrey;
-    text-align: center;
-    color: $white;
+  padding-top: 2em;
+  padding-bottom: 3em;
+  text-align: center;
+  color: $white;
 
-    a {
-        color: $white;
-    }
+  a {
+      color: $white;
+  }
 
-    a:hover {
-        text-decoration: none;
-    }
+  a:hover {
+      text-decoration: none;
+  }
 }
 
 .main {
-    @include container;
+  @include container;
+  margin-bottom: 1em;
 }
 
 //
 // Header
 //
 .site-title {
-    margin-top: 0;
+  margin-top: 0;
 }
 
 //
@@ -73,10 +72,20 @@ $white: #f6f6f6;
 //
 
 .coupon {
-    padding: .5em;
-    border-top: 1px solid lighten($base-color, 30%);
+  margin-bottom: 1em;
+  padding: 1em;
+  background: $white;
+  box-shadow: 0 0 10px $base-color;
+  border-top: 1px solid lighten($base-color, 30%);
 
-    &:first-child {
-        border-top: none;
-    }
+  .title {
+    margin: 0;
+    font-family: 'Kite One',Helvetica Neue,Helvetica,sans-serif;
+    font-size: $h1_font_size;
+    color: lighten($base-color, 5%);
+  }
+
+  &:first-child {
+      border-top: none;
+  }
 }

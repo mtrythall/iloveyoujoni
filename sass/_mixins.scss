@@ -2,13 +2,15 @@
 // Used as a wrapper to bring content into main area
 @mixin container {
     margin: 0 auto;
-    width: 35em;
+    width: 40em;
 }
 
 // - heart-background($size: Numpx, $color: any valid)
 // Creates a repeating heart background
 // via http://lea.verou.me/css3patterns/#hearts
 @mixin heart-background($size, $heart-color, $background-color) {
+    $half-size: $size/2;
+
     background: 
     radial-gradient(circle closest-side at 60% 43%, $background-color 26%, rgba($background-color,0) 27%),
     radial-gradient(circle closest-side at 40% 43%, $background-color 26%, rgba($background-color,0) 27%),
@@ -16,11 +18,11 @@
     radial-gradient(circle closest-side at 60% 22%, $heart-color 45%, rgba($heart-color,0) 46%),
     radial-gradient(circle closest-side at 50% 35%, $heart-color 30%, rgba($heart-color,0) 31%),
 
-    radial-gradient(circle closest-side at 60% 43%, $background-color 26%, rgba($background-color,0) 27%) 50px 50px,
-    radial-gradient(circle closest-side at 40% 43%, $background-color 26%, rgba($background-color,0) 27%) 50px 50px,
-    radial-gradient(circle closest-side at 40% 22%, $heart-color 45%, rgba($heart-color,0) 46%) 50px 50px,
-    radial-gradient(circle closest-side at 60% 22%, $heart-color 45%, rgba($heart-color,0) 46%) 50px 50px,
-    radial-gradient(circle closest-side at 50% 35%, $heart-color 30%, rgba($heart-color,0) 31%) 50px 50px;
+    radial-gradient(circle closest-side at 60% 43%, $background-color 26%, rgba($background-color,0) 27%) $half-size $half-size,
+    radial-gradient(circle closest-side at 40% 43%, $background-color 26%, rgba($background-color,0) 27%) $half-size $half-size,
+    radial-gradient(circle closest-side at 40% 22%, $heart-color 45%, rgba($heart-color,0) 46%) $half-size $half-size,
+    radial-gradient(circle closest-side at 60% 22%, $heart-color 45%, rgba($heart-color,0) 46%) $half-size $half-size,
+    radial-gradient(circle closest-side at 50% 35%, $heart-color 30%, rgba($heart-color,0) 31%) $half-size $half-size;
     background-color: $background-color;
     background-size: $size $size;
 }

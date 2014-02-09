@@ -21,7 +21,7 @@ audio:not([controls]) {
   display: none; }
 
 html {
-  background: whitesmoke;
+  background: #fff;
   color: #363636;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%; }
@@ -171,24 +171,32 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+*, *:before, *:after {
+  /* Chrome 9-, Safari 5-, iOS 4.2-, Android 3-, Blackberry 7- */
+  -webkit-box-sizing: border-box;
+  /* Firefox (desktop or Android) 28- */
+  -moz-box-sizing: border-box;
+  /* Firefox 29+, IE 8+, Chrome 10+, Safari 5.1+, Opera 9.5+, iOS 5+, Opera Mini Anything, Blackberry 10+, Android 4+ */
+  box-sizing: border-box; }
+
 main {
   display: block; }
 
 /*
  * Begin Site Styles
  */
-.header {
-  background: radial-gradient(circle closest-side at 60% 43%, #d35 26%, rgba(221, 51, 85, 0) 27%), radial-gradient(circle closest-side at 40% 43%, #d35 26%, rgba(221, 51, 85, 0) 27%), radial-gradient(circle closest-side at 40% 22%, #e14967 45%, rgba(224, 72, 103, 0) 46%), radial-gradient(circle closest-side at 60% 22%, #e14967 45%, rgba(224, 72, 103, 0) 46%), radial-gradient(circle closest-side at 50% 35%, #e14967 30%, rgba(224, 72, 103, 0) 31%), radial-gradient(circle closest-side at 60% 43%, #d35 26%, rgba(221, 51, 85, 0) 27%) 50px 50px, radial-gradient(circle closest-side at 40% 43%, #d35 26%, rgba(221, 51, 85, 0) 27%) 50px 50px, radial-gradient(circle closest-side at 40% 22%, #e14967 45%, rgba(224, 72, 103, 0) 46%) 50px 50px, radial-gradient(circle closest-side at 60% 22%, #e14967 45%, rgba(224, 72, 103, 0) 46%) 50px 50px, radial-gradient(circle closest-side at 50% 35%, #e14967 30%, rgba(224, 72, 103, 0) 31%) 50px 50px;
+html {
+  background: radial-gradient(circle closest-side at 60% 43%, #d35 26%, rgba(221, 51, 85, 0) 27%), radial-gradient(circle closest-side at 40% 43%, #d35 26%, rgba(221, 51, 85, 0) 27%), radial-gradient(circle closest-side at 40% 22%, #e14967 45%, rgba(224, 72, 103, 0) 46%), radial-gradient(circle closest-side at 60% 22%, #e14967 45%, rgba(224, 72, 103, 0) 46%), radial-gradient(circle closest-side at 50% 35%, #e14967 30%, rgba(224, 72, 103, 0) 31%), radial-gradient(circle closest-side at 60% 43%, #d35 26%, rgba(221, 51, 85, 0) 27%) 60px 60px, radial-gradient(circle closest-side at 40% 43%, #d35 26%, rgba(221, 51, 85, 0) 27%) 60px 60px, radial-gradient(circle closest-side at 40% 22%, #e14967 45%, rgba(224, 72, 103, 0) 46%) 60px 60px, radial-gradient(circle closest-side at 60% 22%, #e14967 45%, rgba(224, 72, 103, 0) 46%) 60px 60px, radial-gradient(circle closest-side at 50% 35%, #e14967 30%, rgba(224, 72, 103, 0) 31%) 60px 60px;
   background-color: #d35;
-  background-size: 120px 120px;
-  height: 48em;
+  background-size: 120px 120px; }
+
+.header {
   text-align: center;
   color: #f6f6f6; }
 
 .footer {
   padding-top: 2em;
-  padding-bottom: 2em;
-  background: darkslategrey;
+  padding-bottom: 3em;
   text-align: center;
   color: #f6f6f6; }
   .footer a {
@@ -198,13 +206,22 @@ main {
 
 .main {
   margin: 0 auto;
-  width: 35em; }
+  width: 40em;
+  margin-bottom: 1em; }
 
 .site-title {
   margin-top: 0; }
 
 .coupon {
-  padding: 0.5em;
+  margin-bottom: 1em;
+  padding: 1em;
+  background: #f6f6f6;
+  box-shadow: 0 0 10px #d35;
   border-top: 1px solid #f3b6c2; }
+  .coupon .title {
+    margin: 0;
+    font-family: 'Kite One', Helvetica Neue, Helvetica, sans-serif;
+    font-size: 2em;
+    color: #e14967; }
   .coupon:first-child {
     border-top: none; }
