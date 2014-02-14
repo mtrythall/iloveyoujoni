@@ -18,12 +18,26 @@ $color: #363636; // Used to set font color
 $base-color: #d35;
 $white: #f6f6f6;
 
+// You can often create simple themes with Sass' color functions.
+// Just set a base color (literally $base-color) and tinker with it.
+// Check it out: http://jackiebalzer.com/color
+$light-color: lighten($base-color, 5%);
+$med-color: lighten($base-color, 25%);
 $shadow-color: darken($base-color, 10%); // The color of all shadows
 
 // - Other Styling
 
 // We want consistent rounding throughout.
 $border-radius: 1rem;
+$shadow-border-size: 8px;
+
+$bubble-color: lighten($base-color, 8%);
+$bubble-arrow-size: 20px;
+
+// Get the size of the avatar. We need spacing between avatar
+// and bubble, so add 10px. Calculation may change, so variable it.
+$author-avatar-width: 120px;
+$author-avatar-space: $author-avatar-width + 10px;
 
 /*
  * Required Imports
@@ -39,12 +53,27 @@ $border-radius: 1rem;
  */
 
 html {
-  @include heart-background(120px, lighten($base-color, 5%), $base-color);
+  @include heart-background(120px, $light-color, $base-color);
 }
 
 body {
+  padding-top: 3rem;
   font-size: 18px;
   line-height: 1.45;  
+}
+
+strong {
+  font-weight: 600;
+}
+
+a {
+  color: $med-color;
+  font-weight: 600;
+
+  &:hover { 
+    color: $shadow-color;
+    text-decoration: none;
+  }
 }
 
 //
@@ -56,23 +85,18 @@ body {
 }
 
 .header {
+  @include container;
+  margin-bottom: 2rem;
   text-align: center;
   color: $white;
 }
 
 .footer {
+  @include container;
   padding-top: 2rem;
   padding-bottom: 3rem;
   text-align: center;
   color: $white;
-
-  a {
-      color: $white;
-  }
-
-  a:hover {
-      text-decoration: none;
-  }
 }
 
 .main {
@@ -83,8 +107,98 @@ body {
 //
 // Header
 //
+
 .site-title {
   margin-top: 0;
+
+  font-size: 5rem;
+  font-weight: 600;
+  line-height: 1.15;
+  text-shadow: 6px 6px 1px $shadow-color;
+
+  .name {
+    font: normal 8rem $theme-font;
+  }
+}
+
+.overview {
+  @include clear;
+  font-size: 1.6rem;
+  text-align: left;
+  color: $white;
+
+  strong {
+    font-weight: 600;
+  }
+}
+
+//
+// Content Header
+//
+
+// Why do it this way? It provides flexibility later on
+// and gives us a consistent class (.headline) for reusability later
+.our-story .headline {
+  font-size: 2.8rem;
+  font-weight: 600;
+  text-align: center;
+  color: $white;
+
+  strong {
+    font-weight: 800;
+  }
+}
+
+.about {
+  @include clear;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.author {
+  float: left;
+  border: 6px solid $base-color;
+  border-radius: 50%;
+}
+
+.bubble {
+  margin-left: $author-avatar-space; // The size of the author's image
+  padding: 1rem;
+
+  border-radius: $border-radius;
+  border-bottom: $shadow-border-size solid $shadow-color;
+  
+  background: $bubble-color;
+  font-size: 1.2rem;
+  color: $white;
+
+  &:before,
+  &:after {
+    @extend %pseudo;
+    z-index: 1;
+    
+    height: 0;
+    width: 0;
+
+    top: 20px;
+
+    // Move to the right the width of the avatar, but move
+    // left the size of the arrow so we're just outside the bubble.
+    left: $author-avatar-space - $bubble-arrow-size;
+
+    border-top: $bubble-arrow-size solid transparent;
+    border-bottom: $bubble-arrow-size solid transparent; 
+    
+    border-right: $bubble-arrow-size solid $bubble-color; 
+  }
+
+  // :after will be the shadow
+  &:after {
+    top: 32px; // Some massaging here
+    left: $author-avatar-space - $bubble-arrow-size + 4px;
+    z-index: -1;
+    border-right-color: $shadow-color;
+  }
 }
 
 //
@@ -95,12 +209,12 @@ body {
   margin-bottom: 1rem;
   padding: 1rem 1rem 1rem 4rem;
 
-  box-shadow: 0 0 10px $base-color;
+  box-shadow: 0 0 10px $shadow-color;
 
   background: $white;
 
   border-radius: $border-radius;
-  border-bottom: 8px solid $shadow-color;
+  border-bottom: $shadow-border-size solid $shadow-color;
 
   .coupon-header {
     // I wanted the count to be a little out of the coupon
@@ -118,20 +232,12 @@ body {
     margin: 0;
     font-family: $theme-font;
     font-size: $h1_font_size;
-    color: lighten($base-color, 5%);
+    color: $light-color;
   }
 
   p {
     margin-top: 0;
   }
-
-  &:first-child {
-      border-top: none;
-  }
-}
-
-.coupon:hover {
-
 }
 
 // The styles for the coupon counts. 
@@ -159,10 +265,10 @@ body {
     display: block; // Push to new line
     font-size: 1.2rem;
     font-weight: 600;
-    color: lighten($base-color, 25%);
+    color: $med-color;
   }
 
-  &, &:after { // Applies to .coupon (&) and .coupon:after (&:after)
+  &, &:after {
     width: 6rem;
     height: 6rem;
     border-radius: 50%; // Gives us a completely rounded border.
@@ -172,13 +278,9 @@ body {
 // We want the shadows on the count to be consistent
 // with the shadow on the .coupon
 .coupon .count:after {
-  @extend %pseudo;
-  
-  z-index: -1; // Sends it to the very bottom
+  @extend %shadow;
 
   // We have to eyeball the placement here. Bust our your rulers!
   top: 2px;
   left: -6px;
-  
-  background: $shadow-color; // Match the color of the shadow on .coupon
 }

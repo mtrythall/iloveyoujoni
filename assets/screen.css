@@ -214,11 +214,26 @@ table {
 main {
   display: block; }
 
-.coupon .count:after {
+/*
+ * Mixins
+ *
+ * Mixins are reusable bits of code. They can accept parameters.
+ */
+/*
+ * Partials
+ *
+ * Partials do not get compiled by Sass. They are great for
+ * abstracting 
+ */
+.coupon .count:after, .bubble:before, .bubble:after {
   display: block;
   content: "";
   position: absolute;
   pointer-events: none; }
+
+.coupon .count:after {
+  z-index: -1;
+  background: #bd203f; }
 
 /*
  * Begin Site Styles
@@ -229,38 +244,111 @@ html {
   background-size: 120px 120px; }
 
 body {
+  padding-top: 3rem;
   font-size: 18px;
   line-height: 1.45; }
+
+strong {
+  font-weight: 600; }
+
+a {
+  color: #efa0b0;
+  font-weight: 600; }
+  a:hover {
+    color: #bd203f;
+    text-decoration: none; }
 
 .container {
   padding: 0 1rem; }
 
 .header {
+  margin: 0 auto;
+  max-width: 35em;
+  margin-bottom: 2rem;
   text-align: center;
   color: #f6f6f6; }
 
 .footer {
+  margin: 0 auto;
+  max-width: 35em;
   padding-top: 2rem;
   padding-bottom: 3rem;
   text-align: center;
   color: #f6f6f6; }
-  .footer a {
-    color: #f6f6f6; }
-  .footer a:hover {
-    text-decoration: none; }
 
 .main {
   margin: 0 auto;
-  width: 35em;
+  max-width: 35em;
   margin-bottom: 1em; }
 
 .site-title {
-  margin-top: 0; }
+  margin-top: 0;
+  font-size: 5rem;
+  font-weight: 600;
+  line-height: 1.15;
+  text-shadow: 6px 6px 1px #bd203f; }
+  .site-title .name {
+    font: normal 8rem "Kite One", Helvetica Neue, Helvetica, sans-serif; }
+
+.overview {
+  font-size: 1.6rem;
+  text-align: left;
+  color: #f6f6f6; }
+  .overview:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .overview strong {
+    font-weight: 600; }
+
+.our-story .headline {
+  font-size: 2.8rem;
+  font-weight: 600;
+  text-align: center;
+  color: #f6f6f6; }
+  .our-story .headline strong {
+    font-weight: 800; }
+
+.about {
+  position: relative;
+  margin-bottom: 1rem; }
+  .about:after {
+    content: "";
+    display: table;
+    clear: both; }
+
+.author {
+  float: left;
+  border: 6px solid #dd3355;
+  border-radius: 50%; }
+
+.bubble {
+  margin-left: 130px;
+  padding: 1rem;
+  border-radius: 1rem;
+  border-bottom: 8px solid #bd203f;
+  background: #e35672;
+  font-size: 1.2rem;
+  color: #f6f6f6; }
+  .bubble:before, .bubble:after {
+    z-index: 1;
+    height: 0;
+    width: 0;
+    top: 20px;
+    left: 110px;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-right: 20px solid #e35672; }
+  .bubble:after {
+    top: 32px;
+    left: 114px;
+    z-index: -1;
+    border-right-color: #bd203f; }
 
 .coupon {
   margin-bottom: 1rem;
   padding: 1rem 1rem 1rem 4rem;
-  box-shadow: 0 0 10px #dd3355;
+  box-shadow: 0 0 10px #bd203f;
   background: #f6f6f6;
   border-radius: 1rem;
   border-bottom: 8px solid #bd203f; }
@@ -277,8 +365,6 @@ body {
     color: #e14967; }
   .coupon p {
     margin-top: 0; }
-  .coupon:first-child {
-    border-top: none; }
 
 .coupon .count {
   display: inline-block;
@@ -304,7 +390,5 @@ body {
     border-radius: 50%; }
 
 .coupon .count:after {
-  z-index: -1;
   top: 2px;
-  left: -6px;
-  background: #bd203f; }
+  left: -6px; }

@@ -1,8 +1,14 @@
+/*
+ * Mixins
+ *
+ * Mixins are reusable bits of code. They can accept parameters.
+ */
+
 // - container
 // Used as a wrapper to bring content into main area
 @mixin container {
     margin: 0 auto;
-    width: 35em;
+    max-width: 35em;
 }
 
 // - inline-block
@@ -11,6 +17,16 @@
 @mixin inline-block {
     display: inline-block;
     vertical-align: middle;
+}
+
+// - clear
+// Clears floats with a pseudo element
+@mixin clear {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
 }
 
 // - heart-background($size: Numpx, $color: any valid)
@@ -34,4 +50,3 @@
     background-color: $background-color;
     background-size: $size $size;
 }
-

@@ -1,6 +1,24 @@
+/*
+ * Partials
+ *
+ * Partials do not get compiled by Sass. They are great for
+ * abstracting 
+ */
+
+// - pseudo
+// Gives us the basic for creating a workable pseudo element
+// for :before or :after
 %pseudo {
   display: block;
   content: "";
   position: absolute;
   pointer-events: none;
+}
+
+// - shadow
+// Common styles for create shadows in this design
+%shadow {
+  @extend %pseudo;
+  z-index: -1; // Sends it to the very bottom
+  background: $shadow-color;
 }
