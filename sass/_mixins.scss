@@ -2,7 +2,15 @@
 // Used as a wrapper to bring content into main area
 @mixin container {
     margin: 0 auto;
-    width: 40em;
+    width: 35em;
+}
+
+// - inline-block
+// Gives us a basic, middle aligned inline block element.
+// Great for styling text inline.
+@mixin inline-block {
+    display: inline-block;
+    vertical-align: middle;
 }
 
 // - heart-background($size: Numpx, $color: any valid)

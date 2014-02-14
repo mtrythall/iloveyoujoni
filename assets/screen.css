@@ -7,10 +7,22 @@
 /*
  * Required Imports
  */
-article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+summary {
   display: block; }
 
-audio, canvas, video {
+audio,
+canvas,
+video {
   display: inline-block; }
 
 audio:not([controls]) {
@@ -21,13 +33,17 @@ audio:not([controls]) {
   display: none; }
 
 html {
-  background: #fff;
+  background: white;
   color: #363636;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%; }
 
-html, button, input, select, textarea {
-  font-family: 'Helvetica'; }
+html,
+button,
+input,
+select,
+textarea {
+  font-family: "Raleway", Helvetica, sans-serif; }
 
 body {
   margin: 0; }
@@ -66,7 +82,8 @@ h6 {
 abbr[title] {
   border-bottom: 1px dotted; }
 
-b, strong {
+b,
+strong {
   font-weight: bold; }
 
 dfn {
@@ -76,7 +93,10 @@ mark {
   background: #ff0;
   color: #000; }
 
-code, kbd, pre, samp {
+code,
+kbd,
+pre,
+samp {
   font-family: monospace, serif;
   font-size: 1em; }
 
@@ -88,14 +108,16 @@ pre {
 q {
   quotes: "\201C" "\201D" "\2018" "\2019"; }
 
-q:before, q:after {
+q:before,
+q:after {
   content: '';
   content: none; }
 
 small {
   font-size: 80%; }
 
-sub, sup {
+sub,
+sup {
   font-size: 75%;
   line-height: 0;
   position: relative;
@@ -106,7 +128,6 @@ sup {
 
 sub {
   bottom: -0.25em; }
-
 
 img {
   border: 0; }
@@ -127,26 +148,36 @@ legend {
   padding: 0;
   white-space: normal; }
 
-button, input, select, textarea {
+button,
+input,
+select,
+textarea {
   font-family: inherit;
   font-size: 100%;
   margin: 0;
   vertical-align: baseline; }
 
-button, input {
+button,
+input {
   line-height: normal; }
 
-button, select {
+button,
+select {
   text-transform: none; }
 
-button, html input[type="button"], input[type="reset"], input[type="submit"] {
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
   -webkit-appearance: button;
   cursor: pointer; }
 
-button[disabled], input[disabled] {
+button[disabled],
+input[disabled] {
   cursor: default; }
 
-input[type="checkbox"], input[type="radio"] {
+input[type="checkbox"],
+input[type="radio"] {
   box-sizing: border-box;
   padding: 0; }
 
@@ -156,7 +187,8 @@ input[type="search"] {
   -webkit-box-sizing: content-box;
   box-sizing: content-box; }
 
-input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration {
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none; }
 
 button::-moz-focus-inner, input::-moz-focus-inner {
@@ -182,21 +214,34 @@ table {
 main {
   display: block; }
 
+.coupon .count:after {
+  display: block;
+  content: "";
+  position: absolute;
+  pointer-events: none; }
+
 /*
  * Begin Site Styles
  */
 html {
-  background: radial-gradient(circle closest-side at 60% 43%, #d35 26%, rgba(221, 51, 85, 0) 27%), radial-gradient(circle closest-side at 40% 43%, #d35 26%, rgba(221, 51, 85, 0) 27%), radial-gradient(circle closest-side at 40% 22%, #e14967 45%, rgba(224, 72, 103, 0) 46%), radial-gradient(circle closest-side at 60% 22%, #e14967 45%, rgba(224, 72, 103, 0) 46%), radial-gradient(circle closest-side at 50% 35%, #e14967 30%, rgba(224, 72, 103, 0) 31%), radial-gradient(circle closest-side at 60% 43%, #d35 26%, rgba(221, 51, 85, 0) 27%) 60px 60px, radial-gradient(circle closest-side at 40% 43%, #d35 26%, rgba(221, 51, 85, 0) 27%) 60px 60px, radial-gradient(circle closest-side at 40% 22%, #e14967 45%, rgba(224, 72, 103, 0) 46%) 60px 60px, radial-gradient(circle closest-side at 60% 22%, #e14967 45%, rgba(224, 72, 103, 0) 46%) 60px 60px, radial-gradient(circle closest-side at 50% 35%, #e14967 30%, rgba(224, 72, 103, 0) 31%) 60px 60px;
-  background-color: #d35;
+  background: radial-gradient(circle closest-side at 60% 43%, #dd3355 26%, rgba(221, 51, 85, 0) 27%), radial-gradient(circle closest-side at 40% 43%, #dd3355 26%, rgba(221, 51, 85, 0) 27%), radial-gradient(circle closest-side at 40% 22%, #e14967 45%, rgba(225, 73, 103, 0) 46%), radial-gradient(circle closest-side at 60% 22%, #e14967 45%, rgba(225, 73, 103, 0) 46%), radial-gradient(circle closest-side at 50% 35%, #e14967 30%, rgba(225, 73, 103, 0) 31%), radial-gradient(circle closest-side at 60% 43%, #dd3355 26%, rgba(221, 51, 85, 0) 27%) 60px 60px, radial-gradient(circle closest-side at 40% 43%, #dd3355 26%, rgba(221, 51, 85, 0) 27%) 60px 60px, radial-gradient(circle closest-side at 40% 22%, #e14967 45%, rgba(225, 73, 103, 0) 46%) 60px 60px, radial-gradient(circle closest-side at 60% 22%, #e14967 45%, rgba(225, 73, 103, 0) 46%) 60px 60px, radial-gradient(circle closest-side at 50% 35%, #e14967 30%, rgba(225, 73, 103, 0) 31%) 60px 60px;
+  background-color: #dd3355;
   background-size: 120px 120px; }
+
+body {
+  font-size: 18px;
+  line-height: 1.45; }
+
+.container {
+  padding: 0 1rem; }
 
 .header {
   text-align: center;
   color: #f6f6f6; }
 
 .footer {
-  padding-top: 2em;
-  padding-bottom: 3em;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
   text-align: center;
   color: #f6f6f6; }
   .footer a {
@@ -206,22 +251,60 @@ html {
 
 .main {
   margin: 0 auto;
-  width: 40em;
+  width: 35em;
   margin-bottom: 1em; }
 
 .site-title {
   margin-top: 0; }
 
 .coupon {
-  margin-bottom: 1em;
-  padding: 1em;
+  margin-bottom: 1rem;
+  padding: 1rem 1rem 1rem 4rem;
+  box-shadow: 0 0 10px #dd3355;
   background: #f6f6f6;
-  box-shadow: 0 0 10px #d35;
-  border-top: 1px solid #f3b6c2; }
+  border-radius: 1rem;
+  border-bottom: 8px solid #bd203f; }
+  .coupon .coupon-header {
+    margin-left: -6.5rem; }
+  .coupon .title,
+  .coupon .counter {
+    display: inline-block;
+    vertical-align: middle; }
   .coupon .title {
     margin: 0;
-    font-family: 'Kite One', Helvetica Neue, Helvetica, sans-serif;
+    font-family: "Kite One", Helvetica Neue, Helvetica, sans-serif;
     font-size: 2em;
     color: #e14967; }
+  .coupon p {
+    margin-top: 0; }
   .coupon:first-child {
     border-top: none; }
+
+.coupon .count {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  margin: 0 .5rem 0 0;
+  border: 6px solid #f6f6f6;
+  background: #a81c38;
+  font-size: 2.7rem;
+  font-weight: 800;
+  text-shadow: 0 0 2px #dd3355;
+  color: #f6f6f6;
+  line-height: 1.15;
+  text-align: center; }
+  .coupon .count span {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #efa0b0; }
+  .coupon .count, .coupon .count:after {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%; }
+
+.coupon .count:after {
+  z-index: -1;
+  top: 2px;
+  left: -6px;
+  background: #bd203f; }

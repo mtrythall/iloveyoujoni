@@ -7,13 +7,23 @@
 
 // - From Normalize
 // We can override here, these get applied before Sass compiles
-$normalized_font_family: 'Helvetica';
+$normalized_font_family: 'Raleway',Helvetica,sans-serif;
+
+$sans-serif: $normalized_font_family; // Basically renaming from Normalize
+$theme-font: 'Kite One',Helvetica Neue,Helvetica,sans-serif;
 
 // - Colors
 $color: #363636; // Used to set font color
 
 $base-color: #d35;
 $white: #f6f6f6;
+
+$shadow-color: darken($base-color, 10%); // The color of all shadows
+
+// - Other Styling
+
+// We want consistent rounding throughout.
+$border-radius: 1rem;
 
 /*
  * Required Imports
@@ -22,6 +32,7 @@ $white: #f6f6f6;
 @import "normalize"; // Reset CSS, gives us decent typography, etc
 @import "shims"; // Augments gaps in HTML5, Normalize, etc
 @import "mixins"; // Common functions and reusables
+@import "partials"; // Stuff that doesn't get compiled
 
 /*
  * Begin Site Styles
@@ -31,9 +42,18 @@ html {
   @include heart-background(120px, lighten($base-color, 5%), $base-color);
 }
 
+body {
+  font-size: 18px;
+  line-height: 1.45;  
+}
+
 //
 // Layout
 //
+
+.container {
+  padding: 0 1rem;
+}
 
 .header {
   text-align: center;
@@ -41,8 +61,8 @@ html {
 }
 
 .footer {
-  padding-top: 2em;
-  padding-bottom: 3em;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
   text-align: center;
   color: $white;
 
@@ -72,20 +92,93 @@ html {
 //
 
 .coupon {
-  margin-bottom: 1em;
-  padding: 1em;
-  background: $white;
+  margin-bottom: 1rem;
+  padding: 1rem 1rem 1rem 4rem;
+
   box-shadow: 0 0 10px $base-color;
-  border-top: 1px solid lighten($base-color, 30%);
+
+  background: $white;
+
+  border-radius: $border-radius;
+  border-bottom: 8px solid $shadow-color;
+
+  .coupon-header {
+    // I wanted the count to be a little out of the coupon
+    // box so that it stood out. Let's move it, along with the title!
+    margin-left: -6.5rem;
+  }
+
+  // We want .title and .counter to line up horizontally.
+  .title,
+  .counter {
+    @include inline-block;
+  }
 
   .title {
     margin: 0;
-    font-family: 'Kite One',Helvetica Neue,Helvetica,sans-serif;
+    font-family: $theme-font;
     font-size: $h1_font_size;
     color: lighten($base-color, 5%);
+  }
+
+  p {
+    margin-top: 0;
   }
 
   &:first-child {
       border-top: none;
   }
+}
+
+.coupon:hover {
+
+}
+
+// The styles for the coupon counts. 
+// Contains "left!" via the <span>
+.coupon .count {
+  @include inline-block;
+  position: relative;
+
+  margin: 0 .5rem 0 0;
+
+  border: 6px solid $white;
+  background: darken($base-color, 15%);
+
+  font-size: 2.7rem;
+  font-weight: 800;
+  text-shadow: 0 0 2px $base-color; // We really want the count to *pop*!
+  color: $white;
+
+  // We set a smaller line-height here so that
+  // the count and "left!" are close together
+  line-height: 1.15;
+  text-align: center;
+
+  span {
+    display: block; // Push to new line
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: lighten($base-color, 25%);
+  }
+
+  &, &:after { // Applies to .coupon (&) and .coupon:after (&:after)
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%; // Gives us a completely rounded border.
+  }
+}
+
+// We want the shadows on the count to be consistent
+// with the shadow on the .coupon
+.coupon .count:after {
+  @extend %pseudo;
+  
+  z-index: -1; // Sends it to the very bottom
+
+  // We have to eyeball the placement here. Bust our your rulers!
+  top: 2px;
+  left: -6px;
+  
+  background: $shadow-color; // Match the color of the shadow on .coupon
 }
